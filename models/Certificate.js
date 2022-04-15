@@ -1,28 +1,32 @@
 const mongoose = require("mongoose");
-const UserSchema = new mongoose.Schema(
+const CertificateSchema = new mongoose.Schema(
   {
-    username: {
+    title: {
       type: String,
       required: true,
       unique: true,
     },
-    password: {
+    link: {
       type: String,
       required: true,
     },
-    email: {
+    desc: {
       type: String,
       default: "",
     },
-    profilePic: {
+    photo: {
       type: String,
-      default: "",
+      required: true,
     },
-    profileName: {
+    username: {
       type: String,
-      default: "",
+      required: true,
+    },
+    icon: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Certificate", CertificateSchema);
